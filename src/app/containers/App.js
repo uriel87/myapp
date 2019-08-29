@@ -1,12 +1,13 @@
 import React from "react";
-import {connect} from "react-redux";
-import {User} from "../components/user.cmp";
-import {setName, setEmail} from "../actions/user.action";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { connect } from "react-redux";
+import { User } from "../components/user.cmp";
+import { setName, setEmail } from "../actions/user.action";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from "../components/about";
 import Shop from "../components/shop";
 import Nav from "../components/nav";
 import Home from "../components/home";
+import ShopItem from "../components/shopItem";
 
 const routeWithSubRoutes = route => (
   <Route
@@ -29,7 +30,7 @@ export const App = props => {
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/shop" exact component={Shop} />
-          <Route path="/shop/:id" component={Shop} />
+          <Route path="/shop/:id" component={ShopItem} />
         </Switch>
       </div>
     </Router>

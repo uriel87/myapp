@@ -1,7 +1,7 @@
-import React, {Component} from "react";
-import {useState, useEffect} from "react";
+import React, { Component } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Shop = props => {
   const [users, setUsers] = useState();
@@ -30,10 +30,10 @@ export const Shop = props => {
       <div>
         {users
           ? users.map(user => (
-              <h3 key={user.id}>
-                <Link to={`/shop/${user.id}`}>{user.name}</Link>
-              </h3>
-            ))
+            <h3 key={user.id}>
+              <Link to={`/shop/${user.id}`}>{user.name}</Link>
+            </h3>
+          ))
           : ""}
       </div>
     </div>
