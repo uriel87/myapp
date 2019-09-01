@@ -33,6 +33,7 @@ function ShopItem({ match }) {
     <div className="container">
       <h1>shopItem component page</h1>
       {/* <h3>{JSON.stringify(userItem)}</h3> */}
+
       {userItem
         ? userItem.map(userItem => (
           <h3 key={userItem.id}>

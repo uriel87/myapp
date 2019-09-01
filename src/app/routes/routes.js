@@ -1,24 +1,36 @@
-export default [
+import ShopItem from "../components/shopItem";
+import Shop from "../components/shop";
+import About from "../components/about";
+import Home from "../components/home";
+
+const routes = [
   {
     path: "/",
-    component: User
+    component: Home
   },
   {
-    path: "/user",
-    component: AppContainer,
+    path: "/about",
+    component: About
+  },
+  {
+    path: "/shop",
+    component: Shop,
     routes: [
       {
-        path: "/user/allUsers",
-        component: SearchPageContainer
-      },
+        path: "/shop/:id",
+        component: ShopItem
+      }
+      ,
       {
-        path: "/user/:userId",
-        component: SearchPageContainer
+        path: "/shop/:id/(:obj)",
+        component: ShopItem
       }
     ]
   },
   {
     path: "/*",
-    component: NotFoundPageContainer
+    component: Home
   }
 ];
+
+export default routes;

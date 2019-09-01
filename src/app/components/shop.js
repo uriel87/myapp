@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 
 export const Shop = props => {
   const [users, setUsers] = useState();
+  const [object, setObject] = useState("seconed");
+
+  console.log("props", props);
+
 
   useEffect(() => {
     fetchItem();
@@ -31,7 +35,7 @@ export const Shop = props => {
         {users
           ? users.map(user => (
             <h3 key={user.id}>
-              <Link to={`/shop/${user.id}`}>{user.name}</Link>
+              <Link to={`/shop/${user.id}/${object}`}>{user.name}</Link>
             </h3>
           ))
           : ""}
@@ -41,18 +45,3 @@ export const Shop = props => {
 };
 
 export default Shop;
-
-// const js = [
-//   {
-//     id: 1,
-//     name: "Leanne Graham",
-//     username: "Bret"
-//   },
-//   {
-//     id: 2,
-//     name: "Ervin Howell",
-//     username: "Antonette"
-//   }
-// ];
-
-// const jso = JSON.stringify(js);
