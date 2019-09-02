@@ -12,7 +12,6 @@ function ShopItem({ match }) {
   useEffect(() => {
     fetchItem();
     console.log("match", match);
-
   }, []);
 
   const fetchItem = async () => {

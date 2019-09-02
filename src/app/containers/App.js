@@ -31,7 +31,7 @@ export const App = props => {
           <Route path="/about" component={About} />
           {/* <Route path="/shop" exact component={Shop} /> */}
           <Route path="/shop/:id" exact component={ShopItem} />
-          <Route path="/shop/:id/:obj" component={ShopItem} />
+          {/* <Route path="/shop/:id/:obj" component={ShopItem} /> */}
 
           <Route path="/shop" exact render={() => <Shop {...props} />} />
 
