@@ -15,16 +15,24 @@ const initialState = [{
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case constant.setUserName:
-      state = {
-        ...state,
-        name: action.paylod
-      };
+    case constant.getUser:
+      return state.map(user => {
+        if (user.id === action.id) {
+          return user;
+        }
+      });
       break;
     case constant.setUserEmail:
       state = {
         ...state,
         email: action.paylod
+      };
+      break;
+
+    case constant.setUserName:
+      state = {
+        ...state,
+        name: action.paylod
       };
       break;
     default:
