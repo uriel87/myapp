@@ -9,7 +9,7 @@ export const Nav = props => {
         <Link to="/about">
           <li>about</li>
         </Link>
-        <Link to="/shop">
+        <Link to="/SongsList">
           <li>shop</li>
         </Link>
       </ul>

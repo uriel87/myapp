@@ -1,5 +1,5 @@
-import ShopItem from "./components/shopItem";
-import Shop from "./components/shop";
+import Song from "./components/song";
+import SongsList from "./components/songsList";
 import About from "./components/about";
 import Home from "./components/home";
 import { Switch, Route } from "react-router-dom";
@@ -10,8 +10,8 @@ export const Routes = () => {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/shop" exact component={Shop} />
-      <Route path="/shop/:id" exact component={ShopItem} />
+      <Route path="/SongsList" exact component={SongsList} />
+      <Route path="/SongsList/:id" exact component={Song} />
     </Switch>
   );
 };

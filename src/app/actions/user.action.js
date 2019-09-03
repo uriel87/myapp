@@ -8,6 +8,13 @@ export function getUser(id) {
   };
 }
 
+export function addUser(user) {
+  return {
+    type: constant.addUser,
+    payload: user
+  };
+}
+
 export function setName(name) {
   return {
     type: constant.setUserName,

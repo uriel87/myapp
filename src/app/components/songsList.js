@@ -4,8 +4,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Loading from "./loading";
 
-export const Shop = props => {
-  const [users, setUsers] = useState();
+export const SongsList = props => {
+  const [songs, setSongs] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [getUsersUrl, setgetUsersUrl] = useState("https://jsonplaceholder.typicode.com/users");
   //const [object, setObject] = useState("seconed");
@@ -35,7 +35,7 @@ export const Shop = props => {
       .get(getUsersUrl)
       .then(response => {
         // console.log(response.data);
-        setUsers(response.data);
+        setSongs(response.data);
         setIsLoading(true)
       })
       .catch(error => {
@@ -45,13 +45,13 @@ export const Shop = props => {
 
   return (
     <div className="container">
-      <h1>Shop component page</h1>
+      <h1>Songs component page</h1>
       <hr />
       <div>
         {isLoading
-          ? users.map(user => (
-            <h3 key={user.id}>
-              <Link to={`/shop/${user.id}`}>{user.name}</Link>
+          ? songs.map(song => (
+            <h3 key={song.id}>
+              <Link to={`/SongsList/${song.id}`}>{song.name}</Link>
             </h3>
           ))
           : <Loading />
@@ -61,4 +61,4 @@ export const Shop = props => {
   );
 };
 
-export default Shop;
+export default SongsList;

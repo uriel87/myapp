@@ -1,13 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Loading from "../components/loading"
+import Loading from "./loading"
 
 // export const ShopItem = props => {
 
-function ShopItem({ match }) {
+function Song({ match }) {
 
-  const [userItem, setUserItem] = useState();
+  const [song, setSong] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [getUserUrl, setgetUserUrl] = useState(`https://jsonplaceholder.typicode.com/posts?userId=${match.params.id}`);
 
@@ -20,7 +20,7 @@ function ShopItem({ match }) {
     await axios
       .get(getUserUrl)
       .then(response => {
-        setUserItem(response.data);
+        setSong(response.data);
         setIsLoading(true);
 
         // console.log("match.params.id", response.data);
@@ -34,11 +34,11 @@ function ShopItem({ match }) {
 
   return (
     <div className="container">
-      <h1>shopItem component page</h1>
+      <h1>Song component page</h1>
       {isLoading
-        ? userItem.map(userItem => (
-          <h3 key={userItem.id}>
-            {userItem.body}
+        ? song.map(song => (
+          <h3 key={song.id}>
+            {song.body}
           </h3>
         ))
         : <Loading />}
@@ -46,4 +46,4 @@ function ShopItem({ match }) {
   );
 };
 
-export default ShopItem;
+export default Song;

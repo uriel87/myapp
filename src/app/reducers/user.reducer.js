@@ -22,6 +22,17 @@ const userReducer = (state = initialState, action) => {
         }
       });
       break;
+    case constant.addUser:
+      //return {
+      // ...state,
+      // users: [...state.users, action.newUser]
+
+      state = {
+        ...state,
+        state: action.paylod
+        //};
+      }
+      break;
     case constant.setUserEmail:
       state = {
         ...state,
