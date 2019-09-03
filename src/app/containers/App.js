@@ -1,42 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
-import { User } from "../components/user.cmp";
+import { User } from "../components/users";
 import { setName, setEmail } from "../actions/user.action";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import About from "../components/about";
-import Shop from "../components/shop";
+import { BrowserRouter as Router } from "react-router-dom";
 import Nav from "../components/nav";
-import Home from "../components/home";
-import ShopItem from "../components/shopItem";
-
-const routeWithSubRoutes = route => (
-  <Route
-    path={route.path}
-    render={props => <route.component {...props} routes={route.routes} />}
-  />
-);
+import Routes from "../routes";
 
 export const App = props => {
   return (
     <Router>
       <div className="container">
         <h1>hello world</h1>
-        <User username={props.user.name} useremail={props.user.email} />
+        <User userList={props.user} />
+        {console.log("props.user", props.user)}
+
+        {/* <User userid={props.user.id} username={props.user.name} useremail={props.user.email} usertel={props.user.tel} /> */}
+
+
       </div>
       <hr />
       <div>
         <Nav />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          {/* <Route path="/shop" exact component={Shop} /> */}
-          <Route path="/shop/:id" exact component={ShopItem} />
-          {/* <Route path="/shop/:id/:obj" component={ShopItem} /> */}
-
-          <Route path="/shop" exact render={() => <Shop {...props} />} />
-
-        </Switch>
       </div>
+      <Routes />
     </Router>
   );
 };
