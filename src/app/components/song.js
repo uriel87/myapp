@@ -16,7 +16,6 @@ function Song({ match }) {
   }, []);
 
   const fetchItem = async () => {
-    setIsLoading(false);
     await axios
       .get(getUserUrl)
       .then(response => {

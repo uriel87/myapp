@@ -16,11 +16,11 @@ const initialState = [{
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case constant.getUser:
-      return state.map(user => {
-        if (user.id === action.id) {
-          return user;
-        }
-      });
+      // return state.map(user => {
+      //   if (user.id === action.id) {
+      //     return user;
+      //   }
+      // });
       break;
     case constant.addUser:
       //return {
