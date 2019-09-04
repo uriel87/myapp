@@ -1,4 +1,6 @@
 
+import { useReducer } from "react";
+
 const initialState = {
     loading: false,
     error: false,
@@ -18,6 +20,8 @@ const songReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+const [state, dispatch] = useReducer(songReducer, initialState);
 
 export default songReducer;
 

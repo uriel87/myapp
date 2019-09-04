@@ -9,7 +9,7 @@ export const SongsList = props => {
   //const [songs, setSongs] = useState();
   //const [isLoading, setIsLoading] = useState(false);
   const [getUsersUrl, setgetUsersUrl] = useState("https://jsonplaceholder.typicode.com/users");
-  const [state, dispatch] = useReducer(songsListReducer.songReducer, songsListReducer.initialState);
+  // const [state, dispatch] = useReducer(songsListReducer.songReducer, songsListReducer.initialState);
 
   useEffect(() => {
     //fetchItem();
@@ -35,9 +35,9 @@ export const SongsList = props => {
       .get(getUsersUrl)
       .then(response => {
         console.log("response in fetchSongs", response);
-        dispatch({ type: "fetched", response });
+        songsListReducer.dispatch({ type: "fetched", response });
       })
-      .catch(err => dispatch({ type: "fetch_failed", err }));
+      .catch(err => songsListReducer.dispatch({ type: "fetch_failed", err }));
     // dispatch({ type: "fetched", songsLists });
   };
 
@@ -46,10 +46,10 @@ export const SongsList = props => {
       <h1>Songs component page</h1>
       <hr />
       <div>
-        {console.log("state.loading in render", state)}
+        {console.log("state.loading in render", songsListReducer.state)}
 
-        {state.loading
-          ? state.songsList.map(song => (
+        {songsListReducer.state.loading
+          ? songsListReducer.state.songsList.map(song => (
             <h3 key={song.id}>
               <Link to={`/SongsList/${song.id}`}>{song.name}</Link>
             </h3>
