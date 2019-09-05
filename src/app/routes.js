@@ -1,5 +1,5 @@
 import Song from "./components/song";
-import SongsList from "./components/songsList/songsList";
+import SongsList from "./components/songsList";
 import About from "./components/about";
 import Home from "./components/home";
 import { Switch, Route } from "react-router-dom";
