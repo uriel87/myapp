@@ -5,6 +5,7 @@ import { setName, setEmail } from "../actions/user.action";
 import { BrowserRouter as Router } from "react-router-dom";
 import Nav from "../components/nav";
 import Routes from "../routes";
+import Signup from "../components/signUp";
 
 export const App = props => {
   return (
@@ -16,13 +17,13 @@ export const App = props => {
 
         {/* <User userid={props.user.id} username={props.user.name} useremail={props.user.email} usertel={props.user.tel} /> */}
 
-
       </div>
       <hr />
       <div>
         <Nav />
       </div>
       <Routes />
+      <Signup />
     </Router>
   );
 };
