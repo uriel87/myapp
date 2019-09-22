@@ -6,6 +6,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Nav from "../components/nav";
 import Routes from "../routes";
 import Signup from "../components/signUp";
+import Form from "../components/form";
+
 
 export const App = props => {
   return (
@@ -23,7 +25,8 @@ export const App = props => {
         <Nav />
       </div>
       <Routes />
-      <Signup />
+      {/* <Signup /> */}
+      <Form />
     </Router>
   );
 };
