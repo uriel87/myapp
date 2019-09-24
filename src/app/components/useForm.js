@@ -1,34 +1,36 @@
 import { useState } from 'react';
 
-const useForm = (callback) => {
+const useForm = (callback, validateLogin) => {
 
-    // const initialStateValues = {
-    //     email: "",
-    //     password: ""
-    // }
+    const initialStateValues = {
+        email: "",
+        password: ""
+    }
 
-    const [values, SetValues] = useState({})
-    const [errors, SetErrors] = useState({})
+    const [values, setValues] = useState(initialStateValues)
+    const [errors, setErrors] = useState({})
 
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        SetValues({
+        setValues({
             ...values,
             [name]: value
         });
-        console.log("handleChange")
+        console.log("handleChange", values)
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setErrors(validateLogin(values))
         callback();
     }
 
     return {
         handleChange,
         handleSubmit,
-        values
+        values,
+        errors
     };
 
 }
