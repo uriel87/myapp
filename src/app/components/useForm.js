@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const useForm = (callback, validateLogin) => {
 
@@ -9,6 +9,7 @@ const useForm = (callback, validateLogin) => {
 
     const [values, setValues] = useState(initialStateValues)
     const [errors, setErrors] = useState({})
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
 
     const handleChange = (event) => {
@@ -23,8 +24,15 @@ const useForm = (callback, validateLogin) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(validateLogin(values))
-        callback();
+        setIsSubmitted(true)
     }
+
+    useEffect(() => {
+        // checek if no error
+        if (Object.keys(errors).length === 0 && isSubmitted) {
+            callback();
+        }
+    }, [errors])
 
     return {
         handleChange,

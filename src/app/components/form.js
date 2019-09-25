@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useForm from './useForm'
 import validateLogin from './validationForm'
+import '../../../src/index.css'
 
 const Form = () => {
 
@@ -25,22 +26,24 @@ const Form = () => {
                 <label>Email</label>
                 <div>
                     <input
+                        className={`${errors.email && "input-error"}`}
                         name="email"
                         type="email"
                         value={values.email}
                         onChange={handleChange}
                     />
-                    {errors.email && <p>{errors.email}</p>}
+                    {errors.email && <p className="error">{errors.email}</p>}
                 </div>
                 <label>Password</label>
                 <div>
                     <input
+                        className={`${errors.password && "input-error"}`}
                         name="password"
                         type="password"
                         value={values.password}
                         onChange={handleChange}
                     />
-                    {errors.password && <p>{errors.password}</p>}
+                    {errors.password && <p className="error">{errors.password}</p>}
                 </div>
                 <button type="submit">Submit</button>
             </form>
